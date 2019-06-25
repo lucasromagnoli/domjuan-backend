@@ -17,6 +17,7 @@
 const Route = use('Route')
 
 Route.post('/sessions', 'SessionController.store').validator('Session')
+Route.post('/users', 'UserController.store').validator('User')
 
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
