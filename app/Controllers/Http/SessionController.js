@@ -7,6 +7,10 @@ class SessionController {
   async store ({ request, auth }) {
     const { email, password, version } = request.all()
 
+    if (version !== 'web' && version !== 'mobile') {
+      return
+    }
+
     const user = await User.findByOrFail('email', email)
     const isAdmin = user.admin
 
