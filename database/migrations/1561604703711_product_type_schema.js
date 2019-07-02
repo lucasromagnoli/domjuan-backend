@@ -7,7 +7,7 @@ const Schema = use('Schema')
  * Sabor da pizza
  * Marca de refigerente
  */
-class ProductTypesSchema extends Schema {
+class ProductTypeSchema extends Schema {
   up () {
     this.create('product_types', (table) => {
       table.increments()
@@ -19,14 +19,14 @@ class ProductTypesSchema extends Schema {
         .inTable('products')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
-        .notNulalble()
+        .notNullable()
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('product_types')
+    this.drop('products_type')
   }
 }
 
-module.exports = ProductTypesSchema
+module.exports = ProductTypeSchema
